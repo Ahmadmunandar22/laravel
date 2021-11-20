@@ -40,12 +40,21 @@ Route::middleware(['auth'])->group(function (){
 });
 
 
-Route::prefix(['user'])->group(function (){
-    //URI route akan otomatis diawali user/..
-    Route::get('/', [UserController::class, 'index'])
-        ->name('list-user'); //pemanggilan route name akan menjadi user.list-user
+// Route::prefix(['user'])->group(function (){
+//     //URI route akan otomatis diawali user/..
+//     Route::get('/', [UserController::class, 'index'])
+//         ->name('list-user'); //pemanggilan route name akan menjadi user.list-user
 
 
-    Route::get('/profile', function(){
-    });
+//     Route::get('/profile', function(){
+//     });
+// });
+Route::get('/halo', function () {
+    return view('halo', [
+        "name" => "Jong Koding",
+        "array" => ['aku', 'ikut', 'jong koding']
+    ]);
+});
+Route::get('parent', function(){
+    return view('parent', ["isExist"=>false]);
 });
